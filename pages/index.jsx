@@ -1,11 +1,15 @@
-import Head from "next/head";
-import Image from "next/image";
 import Layout from "../components/Layout";
 import styles from "@/styles/Home.module.css";
+import SearchInput from "@/components/SearchInput";
 
 export default function Home({ countries }) {
-  console.log(countries);
-  return <Layout>Main</Layout>;
+  return (
+    <Layout>
+      <div className={styles.counts}>Found {countries.length} countries</div>
+
+      <SearchInput />
+    </Layout>
+  );
 }
 
 export async function getStaticProps() {
