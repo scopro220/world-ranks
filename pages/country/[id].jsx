@@ -21,14 +21,18 @@ export default function Country({ country, borders, currencies }) {
             <div className={styles.overview_numbers}>
               <div className={styles.overview_population}>
                 <div className={styles.overview_value}>
-                  {country.population}
+                  {country.population.toLocaleString("en-US")}
                 </div>
                 <div className={styles.overview_label}>Population</div>
               </div>
 
               <div className={styles.overview_area}>
-                <div className={styles.overview_value}>{country.area}</div>
-                <div className={styles.overview_label}>Area</div>
+                <div className={styles.overview_value}>
+                  {country.area.toLocaleString("en-US")}
+                </div>
+                <div className={styles.overview_label}>
+                  Area (km<sup style={{ fontSize: "0.5rem" }}>2</sup>)
+                </div>
               </div>
             </div>
           </div>
