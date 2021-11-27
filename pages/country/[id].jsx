@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Layout from "@/components/Layout";
 import styles from "@/styles/Country.module.css";
 
@@ -87,9 +88,12 @@ export default function Country({ country, borders, currencies }) {
                       height={213}
                     />
 
-                    <div className={styles.details_panel_borders_name}>
+                    <Link
+                      href={`/country/${border.cca3}`}
+                      className={styles.details_panel_borders_name}
+                    >
                       {border.name.common}
-                    </div>
+                    </Link>
                   </div>
                 ))}
               </div>
