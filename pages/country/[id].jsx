@@ -52,7 +52,9 @@ export default function Country({ country, borders, currencies }) {
             <div className={styles.details_panel_row}>
               <div className={styles.details_panel_label}>Languages</div>
               <div className={styles.details_panel_value}>
-                {Object.values(country.languages).join(", ")}
+                {country.languages
+                  ? Object.values(country.languages).join(", ")
+                  : "None"}
               </div>
             </div>
 
@@ -127,7 +129,9 @@ export const getStaticProps = async ({ params }) => {
   const country = await resCountry.json();
   const countries = await resCountries.json();
 
-  const currencies = Object.entries(country[0].currencies);
+  const currencies = country[0].currencies
+    ? Object.entries(country[0].currencies)
+    : [];
 
   const borders = country[0].borders ? country[0].borders : [];
   const borderCountries = countries.filter((country) => {
